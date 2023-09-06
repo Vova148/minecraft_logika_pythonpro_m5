@@ -7,6 +7,9 @@ class Game(ShowBase):
 
       land = Mapmanager.Mapmanager()
 
+      
+
+
 
 game = Game()
 game.run()
