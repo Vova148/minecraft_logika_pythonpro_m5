@@ -1,0 +1,22 @@
+[
+  {
+    "name": "block",
+    "position": [0, 0, 0],
+    "color": [1, 0, 0, 1]
+  },
+  {
+    "name": "block",
+    "position": [0, 0, 1],
+    "color": [1, 0, 0, 1]
+  },
+  {
+    "name": "block",
+    "position": [0, 0, 1],
+    "color": [1, 0, 0, 1]
+  },
+  {
+    "name": "panda",
+    "position": [0, 0, 2],
+    "size": [0.1, 0.1, 0.1]
+  }
+]
