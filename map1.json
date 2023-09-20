@@ -8,5 +8,9 @@
     "name": "block",
     "color": [1, 1, 0, 1],
     "pos": [0, 0, 1]
+  },
+  {
+    "name": "model",
+    "pos": [0, 0, 1]
   }
 ]
