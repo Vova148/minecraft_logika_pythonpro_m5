@@ -46,6 +46,8 @@ class Game(ShowBase):
         self.accept('lshift-up', self.updateKeyMap, ['down', False])
         self.accept('mouse1', self.deleteBlock)
         self.accept('mouse3', self.placeBlock)
+
+        self.accept('h', self.land.saveMap)
     def deleteBlock(self):
         if self.rayQueue.getNumEntries() > 0:
             self.rayQueue.sortEntries()

@@ -10,6 +10,19 @@ class Mapmanager():
         self.color = (150/255, 32/255, 10/255, 1)  # rgba
         self.startNew()
 
+    def saveMap(self):
+        blocks = self.land.getChildren()
+        with open("map1.json","w") as file:
+            data = []
+            for b in blocks:
+                pos = b.getPos()
+                elem = {
+                    "name":"block",
+                    "pos": list(pos)
+                }
+                data.append(elem)
+            json.dump(data, file, indent = 4)
+
     def addBlock(self,position):
         self.block = loader.loadModel(self.model)
         self.block.setPos(position)
@@ -29,7 +42,7 @@ class Mapmanager():
 
 
     def loadLand(self):
-        with open("map1.json", "r") as file:
+        with open("map2.json", "r") as file:
             data = json.load(file)
             for elem in data:
                 if elem["name"] == "block":
