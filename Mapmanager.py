@@ -18,13 +18,15 @@ class Mapmanager():
                 pos = b.getPos()
                 elem = {
                     "name":"block",
-                    "pos": list(pos)
+                    "pos": list(pos),
+                    "type": b.getPythonTag("type")
                 }
                 data.append(elem)
             json.dump(data, file, indent = 4)
 
     def addBlock(self,position):
         self.block = loader.loadModel(self.model)
+        self.block.setPythonTag('type', self.model)
         self.block.setPos(position)
         self.block.reparentTo(self.land)
 
@@ -42,10 +44,11 @@ class Mapmanager():
 
 
     def loadLand(self):
-        with open("map2.json", "r") as file:
+        with open("map1.json", "r") as file:
             data = json.load(file)
             for elem in data:
                 if elem["name"] == "block":
+                    self.model = elem["type"]
                     self.addBlock(tuple(elem["pos"]))
 
 

@@ -48,6 +48,11 @@ class Game(ShowBase):
         self.accept('mouse3', self.placeBlock)
 
         self.accept('h', self.land.saveMap)
+        self.accept('1', self.setGrassBlock)
+
+    def setGrassBlock(self):
+        self.land.model = "blocks/grass-block.glb"
+
     def deleteBlock(self):
         if self.rayQueue.getNumEntries() > 0:
             self.rayQueue.sortEntries()
