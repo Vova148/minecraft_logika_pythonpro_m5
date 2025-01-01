@@ -49,9 +49,19 @@ class Game(ShowBase):
 
         self.accept('h', self.land.saveMap)
         self.accept('1', self.setGrassBlock)
+        self.accept('2', self.setLab)
+        self.accept('3', self.rotate)
+        self.accept('4', self.rotateStandart)
 
     def setGrassBlock(self):
         self.land.model = "blocks/grass-block.glb"
+
+    def rotateStandart(self):
+        self.land.block.setHpr(0,0,0)
+    def rotate(self):
+        self.land.block.setHpr(90, 50,10)
+    def setLab(self):
+        self.land.model = "лабораторія/scene.gltf"
 
     def deleteBlock(self):
         if self.rayQueue.getNumEntries() > 0:
