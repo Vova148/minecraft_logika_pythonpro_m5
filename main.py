@@ -1,11 +1,12 @@
 from math import *
 
+from direct.gui.OnscreenImage import OnscreenImage
 from direct.showbase.ShowBase import ShowBase
 from direct.showbase.ShowBaseGlobal import globalClock
 from panda3d.core import *
 
 import Mapmanager
-import simplepbr
+
 
 def degToRad(degrees):
     return degrees * (pi / 180.0)
@@ -17,12 +18,31 @@ class Game(ShowBase):
 
         self.land = Mapmanager.Mapmanager()
         self.land.loadLand()
-
+        self.setupLights()
         self.captureMouse()
         self.setupCamera()
+        self.setupSkybox()
         self.setupControls()
 
+        self.setup_crosshair()
         self.taskMgr.add(self.update, 'update')
+    def setup_crosshair(self):
+        crosshairs = OnscreenImage(
+            image='crosshairs.png',
+            pos=(0, 0, 0),
+            scale=0.05,
+        )
+        crosshairs.setTransparency(TransparencyAttrib.MAlpha)
+    def setupLights(self):
+        mainLight = DirectionalLight('main light')
+        mainLightNodePath = render.attachNewNode(mainLight)
+        mainLightNodePath.setHpr(30, -60, 0)
+        render.setLight(mainLightNodePath)
+
+        ambientLight = AmbientLight('ambient light')
+        ambientLight.setColor((0.3, 0.3, 0.3, 1))
+        ambientLightNodePath = render.attachNewNode(ambientLight)
+        render.setLight(ambientLightNodePath)
     def setupControls(self):
         self.keyMap = {
             "forward": False,
@@ -166,6 +186,14 @@ class Game(ShowBase):
         properties = WindowProperties()
         properties.setCursorHidden(True)
         self.win.requestProperties(properties)
+
+    def setupSkybox(self):
+        skybox = loader.loadModel('skybox/skybox.egg')
+        skybox.setScale(500)
+        skybox.setBin('background', 1)
+        skybox.setDepthWrite(0)
+        skybox.setLightOff()
+        skybox.reparentTo(render)
 
 
 game = Game()

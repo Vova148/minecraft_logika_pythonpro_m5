@@ -1,22 +1,47 @@
 [
-  {
-    "name": "block",
-    "position": [0, 0, 0],
-    "color": [1, 0, 0, 1]
-  },
-  {
-    "name": "block",
-    "position": [0, 0, 1],
-    "color": [1, 0, 0, 1]
-  },
-  {
-    "name": "block",
-    "position": [0, 0, 1],
-    "color": [1, 0, 0, 1]
-  },
-  {
-    "name": "panda",
-    "position": [0, 0, 2],
-    "size": [0.1, 0.1, 0.1]
-  }
+    {
+        "name": "block",
+        "pos": [
+            0.0,
+            0.0,
+            0.0
+        ],
+        "type": "blocks/dirt-block.glb"
+    },
+    {
+        "name": "block",
+        "pos": [
+            0.0,
+            0.0,
+            2.0
+        ],
+        "type": "blocks/stone-block.glb"
+    },
+    {
+        "name": "block",
+        "pos": [
+            0.0,
+            -2.0,
+            0.0
+        ],
+        "type": "blocks/stone-block.glb"
+    },
+    {
+        "name": "block",
+        "pos": [
+            0.0,
+            -4.0,
+            0.0
+        ],
+        "type": "blocks/stone-block.glb"
+    },
+    {
+        "name": "block",
+        "pos": [
+            0.0,
+            -6.0,
+            0.0
+        ],
+        "type": "blocks/stone-block.glb"
+    }
 ]
